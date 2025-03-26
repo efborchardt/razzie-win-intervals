@@ -6,10 +6,10 @@ import movieRouter from "./routes/movie.router";
 
 const app = express();
 
-export async function initializeApp() {
+export async function initializeApp(csvFilePath: string = "./data/movielist-test.csv") {
   await sequelize.sync({ force: true });
   const dataLoadingService = new DataLoadService();
-  await dataLoadingService.loadDataFromCSV("./data/movielist.csv");
+  await dataLoadingService.loadDataFromCSV(csvFilePath);
   app.use("/api", producerRouter);
   app.use("/api", movieRouter);
   return app;
