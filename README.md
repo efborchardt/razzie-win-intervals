@@ -10,6 +10,7 @@ The **razzie-win-intervals** application is designed to:
 2. Expose an API to:
    - Retrieve the producer with the longest interval between consecutive wins.
    - Retrieve the producer with the fastest consecutive wins.
+   - Retrieve all Golden Raspberry Awards movies available in database.
 
 ### Features:
 - Read CSV data into an in-memory database upon application startup.
