@@ -1,4 +1,4 @@
-# Razzies-Win-Intervals API
+# Golden Raspberry Awards API
 
 Welcome to the **razzie-win-intervals** project! This project provides a RESTful API that allows you to query the list of nominees and winners for the **Worst Film** category of the **Golden Raspberry Awards (Razzies)**.
 
