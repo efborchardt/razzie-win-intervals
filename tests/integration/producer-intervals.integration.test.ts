@@ -3,11 +3,13 @@ import request from 'supertest';
 import { initializeApp } from '../../src/app';
 import sequelize from '../../src/infrastructure/database';
 
-describe('API Integration test', () => {
+describe('API - Producers Integration test', () => {
+  const csvTestFilePath = "./data/movielist-test.csv";
+
   let app: Express;
 
   beforeAll(async () => {
-    app = await initializeApp();
+    app = await initializeApp(csvTestFilePath);
   });
 
   afterAll(async () => {
