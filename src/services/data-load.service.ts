@@ -9,7 +9,7 @@ export class DataLoadService {
     const rows = await this.readCSVFile(filePath);
 
     for (const row of rows) {
-      const movie = await this.createMovies(row);
+      const movie = await this.createMovie(row);
       const producerNames = this.splitProducerNames(row);
       await this.createMovieProducer(producerNames, movie);
     }
@@ -31,7 +31,7 @@ export class DataLoadService {
     return row.producers.split(/, | and /).map((name: string) => name.trim());
   }
 
-  private async createMovies(row: any) {
+  private async createMovie(row: any) {
     return await Movie.create({
       year: parseInt(row.year, 10),
       title: row.title,

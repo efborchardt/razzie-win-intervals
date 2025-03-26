@@ -14,7 +14,7 @@ describe('API Integration test', () => {
     await sequelize.close();
   });
 
-  it('GET /api/producers-intervals - should return correct mix/max intervals - 200', async () => {
+  it('GET /api/producers-intervals - should return correct min/max intervals - 200', async () => {
     const res = await request(app).get('/api/producers-intervals');
     
     expect(res.status).toBe(200);
