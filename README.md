@@ -93,4 +93,22 @@ This endpoint returns the producers with the longest interval between two consec
 }
 ```
 
+### 2. Get All Movies
+**Endpoint:** `/api/movies`
+**Method:** GET  
+This endpoint returns all Golden Raspberry Awards movies available in database
+
+**Response format:**
+```json
+[
+	{
+		"title": "Movie title",
+		"studios": "Movie studio name",
+		"year": 1980,
+		"winner": true, // true: if won the award; false: if did not win the award;
+		"producers": ["Producer 1","Producer 2"]
+	},
+]
+```
+
 ---

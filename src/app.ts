@@ -2,6 +2,7 @@ import express from "express";
 import sequelize from "./infrastructure/database";
 import { DataLoadService } from "./services/data-load.service";
 import producerRouter from "./routes/producer.router";
+import movieRouter from "./routes/movie.router";
 
 const app = express();
 
@@ -10,6 +11,7 @@ export async function initializeApp() {
   const dataLoadingService = new DataLoadService();
   await dataLoadingService.loadDataFromCSV("./data/movielist.csv");
   app.use("/api", producerRouter);
+  app.use("/api", movieRouter);
   return app;
 }
 
