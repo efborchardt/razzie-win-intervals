@@ -11,3 +11,13 @@ services:
       - "9229:9229"
     environment:
       - NODE_ENV=development
+
+  api-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
