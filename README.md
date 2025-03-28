@@ -34,41 +34,66 @@ This project was developed using the following technologies:
 
 - **Node.js:** Version 22.14.0 or later.
 - **NPM (Node Package Manager):** Version 10.9.2 or later.
+- **Docker** (optional) if you prefer to run the project in a containerized environment.
 
-## Installation and Setup
+## Running the Project
 
-Follow the steps below to set up and run the project on your local machine.
+You can run the project either **directly on your machine** or using **Docker**.
 
-### 1. Clone the repository
+### Option 1: Running Locally
+
+Follow these steps to set up and run the project on your local machine.
+
+#### 1. Clone the repository
 ```bash
 git clone https://github.com/efborchardt/razzie-win-intervals.git
 ```
 
-### 2. Install dependencies
+#### 2. Install dependencies
 Navigate to the project directory and install the dependencies:
 ```bash
 cd razzie-win-intervals
 npm install
 ```
 
-### 3. Start the application
+#### 3. Start the application
 To run the application:
 ```bash
 npm start
 ```
 The application will load the CSV data into the SQLite3 database and start the RESTful API.
 
-### 4. Run tests
+#### 4. Run tests
 To run the integration tests:
 ```bash
 npm test
 ```
 This will execute the integration tests and ensure the correctness of the data exposed by the API.
 
+---
+
+### Option 2: Running with Docker Compose
+
+If you prefer to run the project using **Docker Compose**, follow these steps.
+
+#### 1. Start the development environment
+```bash
+docker-compose up api-dev
+```
+This will build (if needed) and start the API with hot-reload inside a Docker container, exposing it on port **3000**.
+
+#### 2. Managing container
+Stop and remove containers when done:
+```bash
+docker-compose down
+```
+
+--- 
+
 ## API Endpoints
 
 ### 1. Get the Longest and Fastest Consecutive Award Intervals
-**Endpoint:** `/api/producers-intervals`
+**Endpoint:** `/api/producers-intervals`  
 **Method:** GET  
 This endpoint returns the producers with the longest interval between two consecutive awards (max), and the ones who obtained two awards the fastest (min).
 
