@@ -1,0 +1,27 @@
+name: AWS Lightsail Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Connect to the Instance via SSH and Deploy
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.LIGHTSAIL_IP }}
+          username: ubuntu
+          key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+          script: |
+            cd razzie-win-intervals
+            git pull origin main
+            docker-compose down
+            docker-compose up api-prod --build -d
+            docker system prune -af
